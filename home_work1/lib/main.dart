@@ -39,6 +39,9 @@ class _MyHomePageState extends State<MyHomePage> {
   int _subhanAllahCounter = 0;
   int _alhamdulillahCounter = 0;
   int _allahuAkbarCounter = 0;
+  int _laHawlaCounter = 0;
+  int _sallmohmdCounter = 0;
+
 
 
   void _incrementSubhanAllah() {
@@ -70,11 +73,34 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
+  void _incrementlaHawla() {
+    setState(() {
+      if (_laHawlaCounter >= 33) {
+        _laHawlaCounter = 0;
+      } else {
+        _laHawlaCounter++;
+      }
+    });
+  }
+
+  void _increment_sallmohmd() {
+    setState(() {
+      if (_sallmohmdCounter >= 33) {
+        _sallmohmdCounter = 0;
+      } else {
+        _sallmohmdCounter++;
+      }
+    });
+  }
+
   void _resetAllCounters() {
     setState(() {
       _subhanAllahCounter = 0;
       _alhamdulillahCounter = 0;
       _allahuAkbarCounter = 0;
+      _laHawlaCounter = 0;
+      _sallmohmdCounter= 0;
+
     });
   }
 
@@ -118,6 +144,18 @@ class _MyHomePageState extends State<MyHomePage> {
                 title: "الله أكبر",
                 counter: _allahuAkbarCounter,
                 onPressed: _incrementAllahuAkbar,
+              ),
+              const SizedBox(height: 10),
+              _buildTasbihCard(
+                title: "لا حول ولا قوة إلا بالله",
+                counter: _laHawlaCounter,
+                onPressed: _incrementlaHawla,
+              ),
+              const SizedBox(height: 10),
+              _buildTasbihCard(
+                title: "اللهم صل وسلم على نبينا محمد",
+                counter: _sallmohmdCounter,
+                onPressed: _increment_sallmohmd,
               ),
               const SizedBox(height:10)// إضافة مسافة سفلية لتجنب تداخل المحتوى مع الزر العائم
             ],
